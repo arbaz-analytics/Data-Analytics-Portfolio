@@ -1,12 +1,26 @@
-# Student Performance Report
+# Excel Projects
 
-My first beginner Excel mini project.
+## Mini Project 01: Student Performance Analysis Report
 
-## Tools Used
+### Objective
+Analyze student performance using Excel formulas and conditional formatting.
+
+### Tools Used
 - Microsoft Excel
-- Basic Formulas & Functions
+- Formulas & Functions
 - Conditional Formatting
-- Summary Reporting
 
-## Status
-Completed ✅
+### Features
+- Total Marks Calculation
+- Average Calculation
+- Result (Pass/Fail)
+- Grade Assignment
+- Subject Insights
+- Topper Identification
+
+### Files
+- project.xlsx
+- screenshot.jpg
+
+### Learning Outcome
+This was my first beginner Excel mini project created during my Data Analytics learning journey.
