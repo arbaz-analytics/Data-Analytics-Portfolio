@@ -46,14 +46,14 @@ Polished, recruiter-facing dashboard with KPI cards and data storytelling.
 
 ## Data Model
 
-![Model View](Screenshots/Relationships_Model_View.jpeg)
+![Model View](Screenshots/Relationships_Model_View.png)
 *Star Schema — one Fact table, four Dimension tables, all Many-to-One relationships.*
 
 ## Report Preview
 
-![Report Overview](Screenshots/Report_Overview.jpeg)
+![Report Overview](Screenshots/Report_Overview.png)
 
-![Report with Slicer](Screenshots/Report_Visualization_With_Slicer.jpeg)
+![Report with Slicer](Screenshots/Report_Visualization_With_Slicer.png)
 *Year slicer cross-filtering both the Sales-by-Year table and Sales-by-Segment-and-Category chart.*
 
 ## Key Takeaways
