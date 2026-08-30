@@ -1,7 +1,8 @@
 # Superstore Sales Analysis — Power BI
 
 An end-to-end Power BI project built on the Superstore retail dataset, covering data cleaning 
-(Power Query/M), enterprise-style data modeling (Star Schema), and interactive visualization.
+(Power Query/M), enterprise-style data modeling (Star Schema), DAX-based business logic, 
+an interactive dashboard, and deployment concepts including Row-Level Security.
 
 ## Overview
 
@@ -10,59 +11,61 @@ An end-to-end Power BI project built on the Superstore retail dataset, covering 
 | **Dataset** | [Superstore Sales Dataset](https://www.kaggle.com/datasets/vivek468/superstore-dataset-final) (Kaggle) |
 | **Size** | 9,994 rows — US retail order data, 2014–2017 |
 | **Tools** | Power BI Desktop, Power Query (M), DAX |
-| **Status** | 🔄 In Progress — Phase 1 & 2 complete, Phase 3 (DAX) next |
+| **Status** | ✅ Complete |
 
 ## Project Phases
 
 ### Phase 1 — ETL (Power Query)
-
-- Corrected data types: Order Date / Ship Date (Text → Date, with locale handling for US format), 
-  Postal Code (Number → Text, to preserve leading zeros on US ZIP codes).
-
-- Removed redundant columns (Row ID) and trimmed whitespace across text fields.
-
+- Diagnosed and fixed a critical data-loss bug: an incorrect CSV `QuoteStyle` setting caused 
+  commas inside quoted product names to misalign columns, corrupting and silently dropping 
+  ~73% of rows — found through row-count auditing, fixed at the Source step.
+- Corrected data types (Date, Text) with locale handling; preserved leading zeros on ZIP codes.
 - Built a custom Date dimension table from scratch using `List.Dates()` in M.
 
 ### Phase 2 — Data Modeling (Star Schema)
+- Modeled a Star Schema: **FactSales** at the center, with **DimDate**, **DimCustomer**, 
+  **DimProduct**, and **DimLocation** as dimensions.
+- Solved a Many-to-Many relationship on Region/City with a **composite key** 
+  (`LocationKey = State & "-" & City`), since city names alone weren't unique across states.
+- Implemented a **role-playing dimension**: Order Date active, Ship Date inactive 
+  (activated selectively via `USERELATIONSHIP`).
 
-- Modeled a Star Schema with **FactSales** at the center and four supporting dimensions: 
-  **DimDate**, **DimCustomer**, **DimProduct**, **DimLocation**.
+### Phase 3 — DAX
+- Core measures: Total Sales, Total Profit, Profit Margin % (`DIVIDE`), Total Quantity.
+- Time Intelligence: `SAMEPERIODLASTYEAR`, `TOTALYTD`, YoY Growth % — built using `CALCULATE` 
+  and `VAR` for readable, efficient logic.
+- `USERELATIONSHIP` used to report on Ship Date without disturbing the default Order Date path.
 
-- Solved a Many-to-Many relationship issue on Region/City by introducing a **composite key** 
-  (`LocationKey = State & "-" & City`), since city names alone weren't unique across states 
-  (e.g., Redmond, WA vs. Redmond, OR).
+### Phase 4 — Dashboard (UI/UX)
+- Executive Dashboard following an F-pattern layout: KPI row, category breakdown, geographic 
+  and monthly trend views.
+- Two **custom tooltip pages** surfacing Total Sales, YoY Growth %, and Profit Margin % on hover — 
+  designed to match the dashboard's color palette rather than using visual defaults.
+- Consistent color coding, rounded axis units, and restrained visual count throughout.
 
-- Implemented a **role-playing dimension**: Order Date is the active relationship to DimDate; 
-  Ship Date is kept inactive, to be activated selectively via `USERELATIONSHIP` in DAX.
-
-- Every Fact-to-Dimension relationship uses Many-to-One cardinality with single cross-filter 
-  direction — no ambiguous filter paths.
-
-### Phase 3 — DAX *(Coming Soon)*
-Measures for time intelligence, profitability analysis, and customer/product segmentation.
-
-### Phase 4 — Dashboard UI/UX *(Coming Soon)*
-Polished, recruiter-facing dashboard with KPI cards and data storytelling.
+### Phase 5 — Deployment Concepts
+- Built and tested a **Row-Level Security (RLS)** role ("West Manager") restricting report 
+  data to a single region via a DAX filter on the Location dimension, verified using Power BI's 
+  "View As" preview.
 
 ## Data Model
 
-![Model View](Screenshots/Relationships_Model_View.jpeg)
-*Star Schema — one Fact table, four Dimension tables, all Many-to-One relationships.*
+![Model View](Screenshots/Relationships_Model_View.png)
 
-## Report Preview
+## Dashboard
 
-![Report Overview](Screenshots/Report_Overview.jpeg)
+![Report Overview](Screenshots/Report_Dashboard_Overview.png)
 
-![Report with Slicer](Screenshots/Report_Visualization_With_Slicer.jpeg)
-*Year slicer cross-filtering both the Sales-by-Year table and Sales-by-Segment-and-Category chart.*
+![Report with Slicer](Screenshots/Report_Visualization.png)
 
 ## Key Takeaways
 
-- Real-world "clean-looking" data can hide serious issues (silent parsing errors, corrupted date fields) that only surface through systematic validation — always check row counts before and after transformation.
-
-- A single-column key isn't always unique; composite keys are a practical, common fix when no natural unique identifier exists.
-
-- Role-playing dimensions let one date table serve multiple purposes (Order Date, Ship Date) without duplicating the whole table.
+- "Clean-looking" data can hide serious issues (silent parsing errors) that only surface through 
+  systematic validation, such as row-count checks before and after transformation.
+- A single-column key isn't always unique; composite keys are a practical fix when no natural 
+  unique identifier exists.
+- Percentage-based growth metrics (MoM, YoY) can be misleading against a small base value — 
+  worth pairing with absolute figures or choosing a more stable comparison period.
 
 ---
 *Part of my [Data Analytics Portfolio](../../).*
