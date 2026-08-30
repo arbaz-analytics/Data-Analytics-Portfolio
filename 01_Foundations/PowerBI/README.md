@@ -24,6 +24,6 @@ professional-grade projects. It covers BI analytics, data visualization, interac
 
 | Project | Status |
 |---|---|
-| Superstore Sales Analysis | ✅ Phase 1 (Power Query) & Phase 2 (Data Modeling) complete — Phase 3 (DAX) in progress |
+| Superstore Sales Analysis | Completed (All 5 phases) |
 
 More projects will be added as I continue building my Power BI and Data Analytics portfolio.
