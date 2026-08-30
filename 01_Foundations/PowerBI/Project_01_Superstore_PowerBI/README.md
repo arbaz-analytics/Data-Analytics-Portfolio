@@ -52,11 +52,17 @@ an interactive dashboard, and deployment concepts including Row-Level Security.
 
 ![Model View](Screenshots/Relationships_Model_View.png)
 
+*Star Schema — one Fact table, four Dimension tables, all Many-to-One relationships.*
+
+
 ## Dashboard
 
 ![Report Overview](Screenshots/Report_Dashboard_Overview.png)
 
 ![Report with Slicer](Screenshots/Report_Visualization.png)
+
+*Year slicer cross-filtering both the Sales-by-Year table and Sales-by-Segment-and-Category chart.*
+
 
 ## Key Takeaways
 
