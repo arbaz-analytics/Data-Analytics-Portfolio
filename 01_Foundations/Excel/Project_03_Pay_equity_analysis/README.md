@@ -26,7 +26,7 @@ An end-to-end Excel project: cleaning a messy, multi-currency HR dataset and tes
 
 ## Dataset
 
-- **Source:** Kaggle, *Employee Pay Equity (messy)* (synthetic data). Add link here.
+- **Source:** Kaggle, *Employee Pay Equity (messy)* (synthetic data). 
 - **Size:** about 96,900 rows, 19 columns. A random sample of **18,000 rows** was used for the analysis.
 - **Result after cleaning:** 17,928 employees, 12 departments, 14 countries.
 
