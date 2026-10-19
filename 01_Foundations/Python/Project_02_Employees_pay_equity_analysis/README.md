@@ -9,7 +9,7 @@ An end-to-end analytics project on a deliberately messy, multi-currency HR datas
 
 **Business question:** *Are employees paid fairly, and which factors are associated with differences in pay?*
 
-![Excel Dashboard](images/Dashboard_Overview.png)
+![Python Dashboard](Screenshots/Dashboard_Python.png)
 
 ---
 
@@ -31,23 +31,23 @@ An end-to-end analytics project on a deliberately messy, multi-currency HR datas
 
 ## 📈 Visuals
 
-![Gender pay gap by department](images/Gender_pay_gap.png)
+![Gender pay gap by department](Screenshots/Gender_pay_gap.png)
 
-![Average vs median salary by department](images/Average_vs_median_salary.png)
+![Average vs median salary by department](Screenshots/Average_vs_median_salary.png)
 
-![Experience vs salary](images/salary_vs_exp_relation.png)
+![Experience vs salary](Screenshots/Salary_vs_exp_relation.png)
 
-![Correlation heatmap](images/Correlation_heatmap.png)
+![Correlation heatmap](Screenshots/Correlation_heatmap.png)
 
-![Salary distribution](images/Salary_distribution_histogram.png)
+![Salary distribution](Screenshots/Salary_distribution_histogram.png)
 
-![Business insights (Excel)](images/Business_Insights.png)
+![Business insights (Excel)](Screenshots/Business_Insights.png)
 
 ---
 
 ## 📁 Dataset
 
-- **Source:** Kaggle, *Employee Pay Equity (messy)*, a synthetic dataset. Add link here.
+- **Source:** Kaggle, *Employee Pay Equity (messy)*, a synthetic dataset.
 - **Size:** about 96,900 rows and 19 columns. A random sample of **18,000 rows** was analysed.
 - **After cleaning:** 17,927 employees, 12 departments, 14 countries and 53 job titles. 17,464 rows remain after excluding the salary outliers.
 - **Problems in the raw data:** mixed date formats, 12 currencies with symbols and codes inside salary text, duplicate records, inconsistent spelling and casing, blanks, stray whitespace and implausible salaries.
@@ -133,5 +133,5 @@ An end-to-end analytics project on a deliberately messy, multi-currency HR datas
 ---
 
 **Author:** Arbaz · Data Analyst in training · Excel, Python, Power BI
-**GitHub:** [arbaz-analytics](https://github.com/arbaz-analytics) · **LinkedIn:** add link
+**GitHub:** [arbaz-analytics](https://github.com/arbaz-analytics) · **LinkedIn:** https://www.linkedin.com/in/sayyadarbaz/
 
