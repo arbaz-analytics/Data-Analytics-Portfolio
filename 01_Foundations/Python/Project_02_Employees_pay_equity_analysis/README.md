@@ -41,7 +41,7 @@ An end-to-end analytics project on a deliberately messy, multi-currency HR datas
 
 ![Salary distribution](Screenshots/Salary_distribution_histogram.png)
 
-![Business insights (Excel)](Excel/Project_03_Pay_equity_analysis/Screenshots/Business_Insights.png)
+![Business insights (Excel)](Screenshots/Business_Insights.png)
 
 ---
 
